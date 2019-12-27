@@ -1,4 +1,4 @@
-# Welcome to the kafka-monitoring wiki!
+# Welcome to the kafka-monitoring zlh!
 
 ## First you have to install zabbix-java-gataway
     yum install -y zabbix-java-gataway
