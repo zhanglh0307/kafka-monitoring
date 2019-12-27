@@ -135,8 +135,9 @@ if you have problems you can check JMX using this script
      QUERY="{\"request\": \"java gateway jmx\",\"conn\": \"$3\",\"port\": $4,\"keys\": [\"$5\"]}"
      $ZBXGET -s $1 -p $2 -k "$QUERY"
 
-    **eg.:**  ./zabb_get_java  zabbix-java-gateway-ip 10052 server-test-ip 12345 
-    'jmx[java.lang:type=Threading,PeakThreadCount]'
+**eg.:**
+    
+    ./zabb_get_java  zabbix-java-gateway-ip 10052 server-test-ip 12345 'jmx[java.lang:type=Threading,PeakThreadCount]'
 
 For monitoring kafka consumers you should install [Burrow](https://github.com/linkedin/Burrow/) daemon and [jq](https://stedolan.github.io/jq/download/) tools on kafka host
 
