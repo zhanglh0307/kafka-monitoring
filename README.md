@@ -1,6 +1,6 @@
-# Welcome to the kafka-monitoring Wiki!
+# 一、Kafka Monitoring
 
-## First you have to install zabbix-java-gataway
+## First you have to install zabbix-java-gataway（zabbix-server服务端）
     yum install -y zabbix-java-gataway
 ## Configuring zabbix-java-gataway
     mcedit /etc/zabbix/zabbix_java_gateway.conf
@@ -15,7 +15,7 @@ Change IP for **JavaGateway=IP_address_java_gateway**
      chkconfig --level 345 zabbix-java-gataway on
 ## Start zabbix-java-gataway
     /etc/init.d/zabbix-java-gataway start
-## Kafka configuration
+## Kafka configuration（kafka服务器，zabbix-agent端）
 
     cd /opt/kafka/bin
     mcedit kafka-run-class.sh
@@ -110,7 +110,7 @@ To avoid using dynamic TCP port and firewall/NAT issues it is better to set stat
      cp -r zabbix/kafka/jmx_discovery /usr/lib/zabbix/externalscripts
      cp -r zabbix/kafka/JMXDiscovery-0.0.1.jar /usr/lib/zabbix/externalscripts
 
-##Import template
+##Import template（上传模板）
 Log in to your zabbix web
 
 **Click Configuration->Templates->Import**
@@ -141,7 +141,7 @@ For monitoring kafka consumers you should install [Burrow](https://github.com/li
 
 ***
 
-# Kafka Consumer Monitoring
+# 二、Kafka Consumer Monitoring
 
 ## Clone all stuff 
      ssh clone https://github.com/zhanglh0307/kafka-monitoring.git
