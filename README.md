@@ -105,17 +105,17 @@ To avoid using dynamic TCP port and firewall/NAT issues it is better to set stat
 
 #Upload scripts for discovery JMX
 
-     git clone https://github.com/helli0n/kafka-monitoring.git 
-     cd zabbix/kafka
-     cp jmx_discovery /etc/zabbix/externalscripts
-     cp JMXDiscovery-0.0.1.jar /etc/zabbix/externalscripts
+     mkdir -p /usr/lib/zabbix/externalscripts;cd /usr/lib/zabbix/externalscript;
+     git clone https://github.com/zhanglh0307/kafka-monitoring.git 
+     cp -r zabbix/kafka/jmx_discovery /usr/lib/zabbix/externalscripts
+     cp -r zabbix/kafka/JMXDiscovery-0.0.1.jar /usr/lib/zabbix/externalscripts
 
 ##Import template
 Log in to your zabbix web
 
 **Click Configuration->Templates->Import**
 
-Download template [zbx_kafka_templates.xml](https://github.com/helli0n/kafka-monitoring/blob/master/zbx_kafka_templates.xml) and upload to zabbix
+Download template [zbx_kafka_templates.xml](https://github.com/zhanglh0307/kafka-monitoring/blob/master/zbx_kafka_templates.xml) and upload to zabbix
 Then add this template to Kafka and configure JMX interfaces on zabbix 
 
 Enter Kafka IP address and JMX port
@@ -144,7 +144,7 @@ For monitoring kafka consumers you should install [Burrow](https://github.com/li
 # Kafka Consumer Monitoring
 
 ## Clone all stuff 
-     ssh clone https://github.com/helli0n/kafka-monitoring.git
+     ssh clone https://github.com/zhanglh0307/kafka-monitoring.git
      cd kafka/kafkaconsumers
 ## Install burrow
      cp -r burrow /opt/
@@ -190,7 +190,7 @@ You should change config file in /opt/burrow/burrow.cfg
      Start burrow and restart zabbix-agent
      /etc/init.d/burrow_script start
      /etc/init.d/zabbix-agent restart
-Upload template [zbx_templates_kafkaconsumers.xml](https://github.com/helli0n/kafka-monitoring/blob/master/kafkaconsumers/zbx_templates_kafkaconsumers.xml) and mapping value [zbx_valuemaps_kafkaconsumers.xml](https://github.com/helli0n/kafka-monitoring/blob/master/kafkaconsumers/zbx_valuemaps_kafkaconsumers.xml) to zabbix server using UI and link template to Kafka host
+Upload template [zbx_templates_kafkaconsumers.xml](https://github.com/zhanglh0307/kafka-monitoring/blob/master/kafkaconsumers/zbx_templates_kafkaconsumers.xml) and mapping value [zbx_valuemaps_kafkaconsumers.xml](https://github.com/zhanglh0307/kafka-monitoring/blob/master/kafkaconsumers/zbx_valuemaps_kafkaconsumers.xml) to zabbix server using UI and link template to Kafka host
 # Troubleshooting 
 If it doesn't work you can check it use **/etc/zabbix/kafka_consumers.sh**
 e.g.:
@@ -211,7 +211,7 @@ e.g.:
 # kafka-monitoring
 http://adminotes.com/
 
-https://github.com/helli0n/kafka-monitoring/wiki/Kafka-monitoring
+https://github.com/zhanglh0307/kafka-monitoring/wiki/Kafka-monitoring
 
 https://engineering.linkedin.com/apache-kafka/burrow-kafka-consumer-monitoring-reinvented
 
